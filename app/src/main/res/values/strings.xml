@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">СЕ-1257218</string>
+    <string name="sectorLabel">Комунальне господарство</string>
+    <string name="state">В роботі</string>
+    <string name="createdLabel">Створено</string>
+    <string name="created">25 лютого 2016</string>
+    <string name="registeredLabel">Зареєстровано</string>
+    <string name="registered">26 лютого 2016</string>
+    <string name="solvedLabel">Вирішити до</string>
+    <string name="solved">29 лютого 2016</string>
+    <string name="responsibleLabel">Відповідальний</string>
+    <string name="responsible">Дніпропетровський МВК()</string>
+    <string name="description">Відкритий люк (біля рекламного щиту), район повороту 18 та 19 трамваїв на проспект Миру з Донецького шосе.</string>
+
+</resources>

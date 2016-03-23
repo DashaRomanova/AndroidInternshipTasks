@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sectorLabel">Communal services</string>
+    <string name="state">In process</string>
+    <string name="createdLabel">Created</string>
+    <string name="created">February 25, 2016</string>
+    <string name="registeredLabel">Registered</string>
+    <string name="registered">February 26, 2016</string>
+    <string name="solvedLabel">Solved by</string>
+    <string name="solved">February 29, 2016</string>
+    <string name="responsibleLabel">Responsible</string>
+    <string name="responsible">Dnipropetrovsk</string>
+    <string name="description">Open the hatch (near advertising shield), District of turn 18 and 19 trams at Mir Avenue from Donetsk highway</string>
+</resources>
