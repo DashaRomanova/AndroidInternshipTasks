@@ -8,23 +8,21 @@ import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ArrayList<SingleItemModel> mPictures;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mPictures = new ArrayList<>();
-        mPictures.add(new SingleItemModel("pic2.jpg"));
-        mPictures.add(new SingleItemModel("pic3.jpg"));
+        List<String> pictures = new ArrayList<>(Arrays.asList("pic2.jpg", "pic3.jpg"));
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(this, mPictures);
+        RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(this, pictures);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(adapter);
     }
@@ -32,11 +30,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
     }
 
     public void onClick(View v){
-        //showToast(v.getClass().getSimpleName());
         switch (v.getClass().getSimpleName()) {
             case  "AppCompatTextView": showToast("TextView"); break;
             case  "AppCompatImageView": showToast("ImageView"); break;

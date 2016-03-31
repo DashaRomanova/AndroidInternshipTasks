@@ -40,6 +40,8 @@
     </style>
 
     <style name="StateTextViewStyle" parent="TextViewStyle">
+        <item name="android:paddingTop">@dimen/text_view_state_padding_top_bottom</item>
+        <item name="android:paddingBottom">@dimen/text_view_state_padding_top_bottom</item>
         <item name="android:layout_gravity">center_vertical|right</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorTextState</item>
