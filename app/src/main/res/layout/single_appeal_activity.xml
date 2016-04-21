@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AppealActivity"
+    android:background="@color/colorBackground">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <include
+                layout="@layout/toolbar"
+                android:id="@+id/toolbar"
+                android:onClick="onClick"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                style="@style/LinerLayoutStyle">
+
+                <TextView
+                    android:layout_width="@dimen/text_view_type_width"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/textViewTitle"
+                    style="@style/TypeTextViewStyle"
+                    android:maxLines="1"
+                    android:ellipsize="marquee"
+                    android:onClick="onClick"/>
+
+                <TextView
+                    android:layout_width="@dimen/text_view_state_width"
+                    android:layout_height="@dimen/text_view_state_height"
+                    android:id="@+id/textViewIndicator"
+                    android:background="@drawable/background"
+                    style="@style/StateTextViewStyle"
+                    android:onClick="onClick"
+                    android:gravity="left|center"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/LinerLayoutStyle">
+                <TextView
+                    android:layout_width="@dimen/text_view_width"
+                    android:layout_height="fill_parent"
+                    android:text="@string/createdLabel"
+                    android:id="@+id/textView3"
+                    style="@style/LeftTextViewStyle"
+                    android:onClick="onClick"/>
+
+                <TextView
+                    android:layout_width="@dimen/text_view_context_width"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/textViewCreated"
+                    style="@style/RightTextViewStyle"
+                    android:onClick="onClick"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/LinerLayoutStyle">
+
+                <TextView
+                    android:layout_width="@dimen/text_view_width"
+                    android:layout_height="fill_parent"
+                    android:text="@string/registeredLabel"
+                    android:id="@+id/textView5"
+                    style="@style/LeftTextViewStyle"
+                    android:onClick="onClick"/>
+
+                <TextView
+                    android:layout_width="@dimen/text_view_context_width"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/textViewRegistered"
+                    style="@style/RightTextViewStyle"
+                    android:onClick="onClick"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/LinerLayoutStyle">
+
+                <TextView
+                    android:layout_width="@dimen/text_view_width"
+                    android:layout_height="fill_parent"
+                    android:text="@string/solvedLabel"
+                    android:id="@+id/textView7"
+                    style="@style/LeftTextViewStyle"
+                    android:onClick="onClick"/>
+
+                <TextView
+                    android:layout_width="@dimen/text_view_context_width"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/textViewSolved"
+                    style="@style/RightTextViewStyle"
+                    android:onClick="onClick"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                style="@style/LinerLayoutStyle">
+
+                <TextView
+                    android:layout_width="@dimen/text_view_width"
+                    android:layout_height="fill_parent"
+                    android:text="@string/responsibleLabel"
+                    android:id="@+id/textView9"
+                    style="@style/LeftTextViewStyle"
+                    android:onClick="onClick"/>
+
+                <TextView
+                    android:layout_width="@dimen/text_view_context_width"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/textViewResponsible"
+                    style="@style/RightTextViewStyle"
+                    android:onClick="onClick"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/text_view_description_height"
+                android:id="@+id/textViewDescription"
+                style="@style/DescriptionTextViewStyle"
+                android:onClick="onClick"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/recycler_view_height"
+                android:scrollbars="none"
+                android:orientation="horizontal"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin">
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

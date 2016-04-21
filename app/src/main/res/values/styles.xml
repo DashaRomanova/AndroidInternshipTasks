@@ -1,24 +1,44 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="LinerLayoutStyle">
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:background">@drawable/border_bottom</item>
+    </style>
+
     <style name="TextViewStyle">
-        <item name="android:paddingLeft">@dimen/text_view_padding_left_right</item>
         <item name="android:paddingTop">@dimen/text_view_padding_top_bottom</item>
-        <item name="android:paddingRight">@dimen/text_view_padding_left_right</item>
         <item name="android:paddingBottom">@dimen/text_view_padding_top_bottom</item>
         <item name="android:textSize">@dimen/text_size</item>
         <item name="android:textColor">@color/colorTextView</item>
-        <item name="android:onClick">onClick</item>
+    </style>
+
+    <style name="NavTextViewStyle">
+        <item name="android:layout_marginLeft">@dimen/nav_drawer_text_margin</item>
+        <item name="android:textSize">@dimen/nav_drawer_text_size</item>
+        <item name="android:textColor">@color/navTextView</item>
+        <item name="android:gravity">left|bottom</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="RightTextViewStyle" parent="TextViewStyle">
+        <item name="android:paddingRight">@dimen/text_view_padding_left_right</item>
         <item name="android:layout_gravity">right</item>
         <item name="android:gravity">center|right</item>
     </style>
@@ -30,16 +50,20 @@
     </style>
 
     <style name="DescriptionTextViewStyle" parent="TextViewStyle">
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
         <item name="android:gravity">left|center</item>
     </style>
 
     <style name="TypeTextViewStyle" parent="TextViewStyle">
+        <item name="android:paddingRight">@dimen/text_view_type_paddingRight</item>
         <item name="android:layout_gravity">left</item>
         <item name="android:gravity">left|center</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="StateTextViewStyle" parent="TextViewStyle">
+        <item name="android:layout_marginRight">@dimen/text_view_state_marginRight</item>
         <item name="android:paddingTop">@dimen/text_view_state_padding_top_bottom</item>
         <item name="android:paddingBottom">@dimen/text_view_state_padding_top_bottom</item>
         <item name="android:layout_gravity">center_vertical|right</item>
@@ -47,6 +71,16 @@
         <item name="android:textColor">@color/colorTextState</item>
         <item name="android:layout_marginBottom">@dimen/text_view_state_margin</item>
         <item name="android:layout_marginTop">@dimen/text_view_state_margin</item>
+    </style>
+
+    <style name="DateTextViewStyle">
+        <item name="android:paddingLeft">@dimen/card_date_text_padding</item>
+        <item name="android:paddingTop">@dimen/card_date_text_padding_top</item>
+        <item name="android:paddingBottom">@dimen/card_date_text_padding</item>
+        <item name="android:textSize">@dimen/card_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/card_text</item>
+        <item name="android:ellipsize">marquee</item>
     </style>
 
 </resources>

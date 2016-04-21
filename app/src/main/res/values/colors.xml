@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#557cac</color>
-    <color name="colorPrimaryDark">#446389</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorBackground">#ebebeb</color>
+    <color name="colorPrimaryDark">#456389</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="navigationBarColor">#425b67</color>
+    <color name="navBackground">#FFFFFF</color>
+    <color name="navTextView">#4f4f4f</color>
+    <color name="navAuthTextView">#de000000</color>
+
+    <color name="card_count_like_text">#c4c4c4</color>
+    <color name="card_hider_text">#212121</color>
+    <color name="card_text">#757575</color>
+
+
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorBackground">#1f000000</color>
     <color name="colorBackgroundState">#f89900</color>
     <color name="colorBorder">#d3d3d3</color>
     <color name="colorTextLabel">#696969</color>
     <color name="colorTextView">#000000</color>
     <color name="colorTextState">#FFFFFF</color>
+
+
+    <color name="tab_background_start">#6082b4</color>
+    <color name="tab_background_center">#45b3c3</color>
+    <color name="tab_background_end">#6786b9</color>
+
+    <color name="fab">#ff9c26</color>
 </resources>

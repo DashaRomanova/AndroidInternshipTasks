@@ -1,4 +1,4 @@
-package com.example.napha.androidinternshiptasks;
+package com.example.napha.androidinternshiptasks.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,26 +7,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.napha.androidinternshiptasks.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 /**
- * Created by Napha on 22.03.2016.
+ * Created by Napha on 20.04.2016.
  */
-public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDataAdapter.RecyclerViewHolder> {
-
+public class AppealRecyclerViewDataAdapter extends RecyclerView.Adapter<AppealRecyclerViewDataAdapter.RecyclerViewHolder> {
     private List<String> mItemsList;
     private Context mContext;
 
-    public RecyclerViewDataAdapter(Context context, List<String> itemsList) {
+    public AppealRecyclerViewDataAdapter(Context context, List<String> itemsList) {
         this.mItemsList = itemsList;
         this.mContext = context;
     }
 
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sigle_image, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.single_image, viewGroup, false);
         return new RecyclerViewHolder(v);
     }
 
@@ -52,5 +52,4 @@ public class RecyclerViewDataAdapter extends RecyclerView.Adapter<RecyclerViewDa
             this.mItemImage = (ImageView) view.findViewById(R.id.itemImage);
         }
     }
-
 }

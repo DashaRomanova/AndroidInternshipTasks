@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="text_view_state_margin">5dp</dimen>
+    <dimen name="text_view_state_marginRight">30dp</dimen>
     <dimen name="text_view_state_width">120dp</dimen>
     <dimen name="text_view_state_padding_top_bottom">0dp</dimen>
-    <dimen name="text_view_type_width">320dp</dimen>
-    <dimen name="text_view_width">220dp</dimen>
+    <dimen name="text_view_type_width">280dp</dimen>
+    <dimen name="text_view_type_paddingRight">10dp</dimen>
+    <dimen name="text_view_width">140dp</dimen>
+    <dimen name="text_view_context_width">300dp</dimen>
     <dimen name="image_view_height">340dp</dimen>
     <dimen name="image_view_width">220dp</dimen>
     <dimen name="image_view_padding">5dp</dimen>
     <dimen name="recycler_view_height">340dp</dimen>
     <dimen name="text_view_description_height">90dp</dimen>
     <dimen name="text_view_padding_top_bottom">10dp</dimen>
-    <dimen name="text_view_padding_left_right">5dp</dimen>
+    <dimen name="text_view_padding_left_right">20dp</dimen>
     <dimen name="text_size">18sp</dimen>
 </resources>

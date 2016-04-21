@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single"
+        android:textColor="@color/navTextView"
+        android:textSize="@dimen/nav_drawer_text_size">
+        <item
+            android:id="@+id/nav_all_appeals"
+            android:icon="@drawable/ic_issues"
+            android:title="@string/nav_item_all_appeals" />
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_map"
+            android:title="@string/nav_item_appeals_on_map" />
+    </group>
+    <group
+        android:checkableBehavior="none"
+        android:id="@+id/nav_login"
+        android:textColor="@color/navAuthTextView"
+        android:textSize="@dimen/nav_drawer_text_size">
+        <item
+            android:title="@string/nav_item_authorization" />
+    </group>
+</menu>

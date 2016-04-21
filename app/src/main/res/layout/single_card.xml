@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:cardCornerRadius="@dimen/card_radius"
+    android:layout_marginBottom="@dimen/card_margin">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        android:background="?android:selectableItemBackground"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="@dimen/card_width_to_divider"
+            android:layout_height="match_parent"
+            android:background="@drawable/border_right">
+
+            <ImageView
+                android:id="@+id/itemImage"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/card_icon_height"
+                android:scaleType="fitCenter"
+                android:paddingLeft="@dimen/card_icon_padding_left"
+                android:paddingRight="@dimen/card_icon_padding_right"
+                android:paddingTop="@dimen/card_icon_padding_top" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="@dimen/card_icon_like_width"
+                    android:layout_height="match_parent"
+                    android:id="@+id/imageViewLike"
+                    android:scaleType="fitXY"
+                    android:paddingLeft="@dimen/card_icon_like_padding_left"
+                    android:paddingTop="@dimen/card_icon_like_padding_top"
+                    android:paddingBottom="@dimen/card_icon_like_padding_bottom" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textViewCount"
+                    android:textColor="@color/card_count_like_text"
+                    android:textSize="@dimen/card_text_size"
+                    android:gravity="left|bottom"
+                    android:paddingBottom="@dimen/card_icon_like_padding_bottom"
+                    android:paddingLeft="@dimen/card_count_like_padding_left" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/card_height">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/card_hider_height"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/itemTitle"
+                android:textStyle="bold"
+                android:textSize="@dimen/card_hider_text_size"
+                android:textColor="@color/card_hider_text"
+                android:paddingLeft="@dimen/card_text_padding_left"
+                android:layout_marginTop="@dimen/card_hider_text_padding_top"
+                android:paddingBottom="@dimen/card_hider_text_padding_bottom"
+                android:paddingRight="@dimen/card_hider_text_padding_right"
+                android:gravity="left|center"
+                android:maxLines="2"
+                android:ellipsize="marquee"
+                android:singleLine="false"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/itemStreet"
+                android:textSize="@dimen/card_text_size"
+                android:textColor="@color/card_text"
+                android:paddingLeft="@dimen/card_text_padding_left"
+                android:gravity="left|center" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/itemDateBeginning"
+                    style="@style/DateTextViewStyle"
+                    android:gravity="left|center"
+                    android:maxLines="1"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/itemDate"
+                    style="@style/DateTextViewStyle"
+                    android:paddingRight="@dimen/card_date_text_padding_right"
+                    android:textAlignment="gravity"
+                    android:gravity="center|right"
+                    android:maxLines="1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
