@@ -39,7 +39,7 @@ public class SingleCardItem {
 
     public void increaseLikesCount() {
         mLikesCount++;
-    }
+    } //[Comment] unused
 
 
     public String getStreet() {

@@ -56,7 +56,7 @@ public class CardListViewDataAdapter extends BaseAdapter {
                 .load("file:///android_asset/hand.png")
                 .into((ImageView) view.findViewById(R.id.imageViewLike));
         Picasso.with(mContext)
-                .load("file:///android_asset/"+singleCardItem.getImage())
+                .load("file:///android_asset/"+singleCardItem.getImage()) //[Comment] Hardcode
                 .into((ImageView) view.findViewById(R.id.itemImage));
         ((TextView) view.findViewById(R.id.textViewCount)).setText(singleCardItem.getLikesCount().toString());
         ((TextView) view.findViewById(R.id.itemTitle)).setText(singleCardItem.getTitleText());

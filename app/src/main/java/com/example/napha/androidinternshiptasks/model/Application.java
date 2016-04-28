@@ -13,7 +13,7 @@ import java.util.Locale;
 /**
  * Created by Napha on 15.04.2016.
  */
-public class Application implements Serializable {
+public class Application implements Serializable { //[Comment] Bad name for model
     private Indicator mIndicator;
     private String mId;
     private String mTitle;

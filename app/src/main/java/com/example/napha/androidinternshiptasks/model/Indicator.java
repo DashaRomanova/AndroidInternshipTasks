@@ -5,7 +5,7 @@ package com.example.napha.androidinternshiptasks.model;
  */
 public enum Indicator {
     InProgress ("В роботі"),
-    Done ("Виконано"),
+    Done ("Виконано"),//[Comment] Hardcode
     NotDone ("Очікує");
 
     private final String name;

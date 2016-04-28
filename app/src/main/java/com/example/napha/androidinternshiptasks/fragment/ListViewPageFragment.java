@@ -29,7 +29,7 @@ public class ListViewPageFragment extends Fragment {
     private List<Application> mApplications;
 
     public static ListViewPageFragment newInstance(List<Application> applications) {
-        if(applications == null) throw new NullPointerException("List of applications is null");
+        if(applications == null) throw new NullPointerException("List of applications is null"); //[Comment] You have the same code in three fragments
         Bundle args = new Bundle();
         for (int i = 0; i < applications.size(); i++) {
             args.putSerializable("application" + i, applications.get(i));
