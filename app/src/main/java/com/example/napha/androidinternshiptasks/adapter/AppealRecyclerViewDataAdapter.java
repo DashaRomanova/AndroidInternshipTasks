@@ -20,8 +20,8 @@ public class AppealRecyclerViewDataAdapter extends RecyclerView.Adapter<AppealRe
     private Context mContext;
 
     public AppealRecyclerViewDataAdapter(Context context, List<String> itemsList) {
-        this.mItemsList = itemsList;
-        this.mContext = context;
+        mItemsList = itemsList;
+        mContext = context;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class AppealRecyclerViewDataAdapter extends RecyclerView.Adapter<AppealRe
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        final String src = mItemsList.get(position);
+        String src = mItemsList.get(position);
         Picasso.with(mContext)
                 .load("file:///android_asset/"+src)
                 .into(holder.mItemImage);
@@ -49,7 +49,7 @@ public class AppealRecyclerViewDataAdapter extends RecyclerView.Adapter<AppealRe
 
         public RecyclerViewHolder(View view) {
             super(view);
-            this.mItemImage = (ImageView) view.findViewById(R.id.itemImage);
+            mItemImage = (ImageView) view.findViewById(R.id.itemImage);
         }
     }
 }

@@ -11,12 +11,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.napha.androidinternshiptasks.model.Application;
 import com.example.napha.androidinternshiptasks.R;
 import com.example.napha.androidinternshiptasks.adapter.AppealRecyclerViewDataAdapter;
+import com.example.napha.androidinternshiptasks.model.UserRequest;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+
+import xdroid.enumformat.EnumFormat;
 
 public class AppealActivity extends AppCompatActivity {
 
@@ -31,24 +33,24 @@ public class AppealActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowTitleEnabled(true);
 
-        Application application = (Application)getIntent().getSerializableExtra("application");;
+        UserRequest userRequest = (UserRequest)getIntent().getSerializableExtra("application");;
         Locale locale = new Locale("uk","UA");
         String format = "dd MMM yyyy";
-        setTitle(application.getId());
-        ((TextView)findViewById(R.id.textViewTitle)).setText(application.getTitle());
-        ((TextView)findViewById(R.id.textViewIndicator)).setText(application.getIndicator().toString());
+        setTitle(userRequest.getId());
+        ((TextView)findViewById(R.id.textViewTitle)).setText(userRequest.getTitle());
+        ((TextView)findViewById(R.id.textViewIndicator)).setText(  EnumFormat.getInstance().format(userRequest.getIndicator()));
         ((TextView)findViewById(R.id.textViewCreated)).setText(new SimpleDateFormat(
-                format, locale).format(application.getDateOfCreation()));
+                format, locale).format(userRequest.getDateOfCreation()));
         ((TextView)findViewById(R.id.textViewRegistered)).setText(new SimpleDateFormat(
-                format, locale).format(application.getDateOfRegistration()));
+                format, locale).format(userRequest.getDateOfRegistration()));
         ((TextView)findViewById(R.id.textViewSolved)).setText(new SimpleDateFormat(
-                format, locale).format(application.getDateOfResolution()));
-        ((TextView)findViewById(R.id.textViewResponsible)).setText(application.getResponsible());
-        ((TextView)findViewById(R.id.textViewDescription)).setText(application.getDescription());
+                format, locale).format(userRequest.getDateOfResolution()));
+        ((TextView)findViewById(R.id.textViewResponsible)).setText(userRequest.getResponsible());
+        ((TextView)findViewById(R.id.textViewDescription)).setText(userRequest.getDescription());
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        AppealRecyclerViewDataAdapter adapter = new AppealRecyclerViewDataAdapter(this, application.getImagesName());
+        AppealRecyclerViewDataAdapter adapter = new AppealRecyclerViewDataAdapter(this, userRequest.getImagesName());
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setAdapter(adapter);
     }

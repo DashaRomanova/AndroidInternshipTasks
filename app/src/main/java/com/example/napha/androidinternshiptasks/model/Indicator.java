@@ -1,25 +1,19 @@
 package com.example.napha.androidinternshiptasks.model;
 
+import com.example.napha.androidinternshiptasks.R;
+
+import xdroid.enumformat.EnumString;
+
 /**
  * Created by Napha on 17.04.2016.
  */
 public enum Indicator {
-    InProgress ("В роботі"),
-    Done ("Виконано"),
-    NotDone ("Очікує");
+    @EnumString(R.string.tab_item_progress)
+    InProgress,
 
-    private final String name;
+    @EnumString(R.string.tab_item_done)
+    Done,
 
-    private Indicator(String s) {
-        name = s;
-    }
-
-    public boolean equalsName(String otherName) {
-        return (otherName == null) ? false : name.equals(otherName);
-    }
-
-    @Override
-    public String toString() {
-        return this.name;
-    }
+    @EnumString(R.string.tab_item_notDone)
+    NotDone
 }

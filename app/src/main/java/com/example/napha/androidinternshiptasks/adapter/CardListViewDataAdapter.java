@@ -13,7 +13,6 @@ import com.example.napha.androidinternshiptasks.model.SingleCardItem;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -50,38 +49,24 @@ public class CardListViewDataAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_card, parent, false);
         }
-
+        String format = "MMM dd, yyyy";
+        Locale UaLocale = new Locale("uk","UA");
         final SingleCardItem singleCardItem = mItemsList.get(position);
         Picasso.with(mContext)
-                .load("file:///android_asset/hand.png")
+                .load("file:///android_asset/"+singleCardItem.getLikeImage())
                 .into((ImageView) view.findViewById(R.id.imageViewLike));
         Picasso.with(mContext)
                 .load("file:///android_asset/"+singleCardItem.getImage())
                 .into((ImageView) view.findViewById(R.id.itemImage));
-        ((TextView) view.findViewById(R.id.textViewCount)).setText(singleCardItem.getLikesCount().toString());
-        ((TextView) view.findViewById(R.id.itemTitle)).setText(singleCardItem.getTitleText());
-        ((TextView) view.findViewById(R.id.itemStreet)).setText(singleCardItem.getStreet());
-        ((TextView) view.findViewById(R.id.itemDateBeginning)).setText(new SimpleDateFormat(
-                "MMM dd, yyyy",
-                new Locale("uk","UA")).format(singleCardItem.getBeginningDate()));
-        ((TextView) view.findViewById(R.id.itemDate)).setText(getDifferenceBetweenTwoDates(
+        ((TextView)view.findViewById(R.id.textViewCount)).setText(singleCardItem.getLikesCount().toString());
+        ((TextView)view.findViewById(R.id.itemTitle)).setText(singleCardItem.getTitleText());
+        ((TextView)view.findViewById(R.id.itemStreet)).setText(singleCardItem.getStreet());
+        ((TextView)view.findViewById(R.id.itemDateBeginning)).setText(new SimpleDateFormat(format, UaLocale).format(singleCardItem.getBeginningDate()));
+        ((TextView)view.findViewById(R.id.itemDate)).setText(CardItemHelper.getDifferenceBetweenTwoDates(
                 singleCardItem.getBeginningDate(),
                 singleCardItem.getEndDate())
                 + " "
                 + mContext.getResources().getString(R.string.days));
         return view;
-    }
-
-    private long getDifferenceBetweenTwoDates(Date begin, Date end){
-        long difference = begin.getTime() - end.getTime();
-        // seconds
-        long seconds = difference / 1000;
-        // minutes
-        long minutes = seconds / 60;
-        // hours
-        long hours = minutes / 60;
-        // days
-        long days = hours / 24;
-        return days;
     }
 }

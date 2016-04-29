@@ -4,10 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.napha.androidinternshiptasks.model.Application;
 import com.example.napha.androidinternshiptasks.fragment.ListViewPageFragment;
 import com.example.napha.androidinternshiptasks.fragment.RecyclerViewPageFragment;
 import com.example.napha.androidinternshiptasks.model.Indicator;
+import com.example.napha.androidinternshiptasks.model.UserRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,44 +17,44 @@ import java.util.List;
  */
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 3;
-    private List<Application> mApplications;
+    private List<UserRequest> mUserRequests;
 
-    public ViewPagerAdapter(FragmentManager fragmentManager, List<Application> applications) {
+    public ViewPagerAdapter(FragmentManager fragmentManager, List<UserRequest> userRequests) {
         super(fragmentManager);
-        this.mApplications = applications;
+        this.mUserRequests = userRequests;
     }
 
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
-        List<Application> applications = new ArrayList<>();
+        List<UserRequest> userRequests = new ArrayList<>();
         switch (position){
             case 0:
-                for (int i = 0; i < mApplications.size(); i++) {
-                    Application application = mApplications.get(i);
-                    if(application.getIndicator().equals(Indicator.InProgress)){
-                        applications.add(application);
+                for (int i = 0; i < mUserRequests.size(); i++) {
+                    UserRequest userRequest = mUserRequests.get(i);
+                    if(userRequest.getIndicator().equals(Indicator.InProgress)){
+                        userRequests.add(userRequest);
                     }
                 }
-                fragment = RecyclerViewPageFragment.newInstance(applications);
+                fragment = RecyclerViewPageFragment.newInstance(userRequests);
                 break;
             case 1:
-                for (int i = 0; i < mApplications.size(); i++) {
-                    Application application = mApplications.get(i);
-                    if(application.getIndicator().equals(Indicator.Done)){
-                        applications.add(application);
+                for (int i = 0; i < mUserRequests.size(); i++) {
+                    UserRequest userRequest = mUserRequests.get(i);
+                    if(userRequest.getIndicator().equals(Indicator.Done)){
+                        userRequests.add(userRequest);
                     }
                 }
-                fragment = RecyclerViewPageFragment.newInstance(applications);
+                fragment = RecyclerViewPageFragment.newInstance(userRequests);
                 break;
             case 2:
-                for (int i = 0; i < mApplications.size(); i++) {
-                    Application application = mApplications.get(i);
-                    if(application.getIndicator().equals(Indicator.NotDone)){
-                        applications.add(application);
+                for (int i = 0; i < mUserRequests.size(); i++) {
+                    UserRequest userRequest = mUserRequests.get(i);
+                    if(userRequest.getIndicator().equals(Indicator.NotDone)){
+                        userRequests.add(userRequest);
                     }
                 }
-                fragment = ListViewPageFragment.newInstance(applications);
+                fragment = ListViewPageFragment.newInstance(userRequests);
                 break;
         }
         return fragment;

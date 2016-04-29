@@ -26,9 +26,9 @@
         <item>@string/imageMap</item>
     </string-array>
 
-    <string name="tab_item_progress">В РОБОТІ</string>
-    <string name="tab_item_done">ВИКОНАНО</string>
-    <string name="tab_item_notDone">ОЧІКУЄ</string>
+    <string name="tab_item_progress">В роботі</string>
+    <string name="tab_item_done">Виконано</string>
+    <string name="tab_item_notDone">Очікує</string>
 
     <string name="action_filter">Filter</string>
     <string name="drawer_open">Open</string>

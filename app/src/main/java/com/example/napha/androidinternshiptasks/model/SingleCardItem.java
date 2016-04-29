@@ -7,6 +7,7 @@ import java.util.Date;
  */
 public class SingleCardItem {
     private String mImage;
+    private String mLikeImage;
     private Integer mLikesCount;
     private String mTitleText;
     private String mStreet;
@@ -16,8 +17,9 @@ public class SingleCardItem {
     public SingleCardItem() {
     }
 
-    public SingleCardItem(String mImage, int mLikesCount, String mTitleText, String mStreet, Date mBeginningDate, Date mEndDate) {
+    public SingleCardItem(String mImage, String mLikeImage, int mLikesCount, String mTitleText, String mStreet, Date mBeginningDate, Date mEndDate) {
         this.mImage = mImage;
+        this.mLikeImage = mLikeImage;
         this.mTitleText = mTitleText;
         this.mStreet = mStreet;
         this.mBeginningDate = mBeginningDate;
@@ -37,11 +39,6 @@ public class SingleCardItem {
         return mLikesCount;
     }
 
-    public void increaseLikesCount() {
-        mLikesCount++;
-    }
-
-
     public String getStreet() {
         return mStreet;
     }
@@ -52,5 +49,9 @@ public class SingleCardItem {
 
     public Date getEndDate() {
         return mEndDate;
+    }
+
+    public String getLikeImage() {
+        return mLikeImage;
     }
 }

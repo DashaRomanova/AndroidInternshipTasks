@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.napha.androidinternshiptasks.model.Application;
 import com.example.napha.androidinternshiptasks.R;
 import com.example.napha.androidinternshiptasks.adapter.ViewPagerAdapter;
+import com.example.napha.androidinternshiptasks.model.UserRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,17 +20,10 @@ import java.util.List;
  * Created by Napha on 19.04.2016.
  */
 public class AppealsPagerFragment extends Fragment {
-    private List<Application> mApplications;
+    private List<UserRequest> mUserRequests;
 
-    public static AppealsPagerFragment newInstance(List<Application> applications) {
-        if(applications == null) throw new NullPointerException("List of applications is null");
-        Bundle args = new Bundle();
-        for (int i = 0; i < applications.size(); i++) {
-            args.putSerializable("application" + i, applications.get(i));
-        }
-        AppealsPagerFragment fragment = new AppealsPagerFragment();
-        fragment.setArguments(args);
-        return fragment;
+    public static AppealsPagerFragment newInstance(List<UserRequest> userRequests) {
+        return PagerFragmentCreator.initInstance(userRequests, new AppealsPagerFragment());
     }
 
     @Override
@@ -38,9 +31,9 @@ public class AppealsPagerFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Bundle args = getArguments();
         if(args!= null) {
-            mApplications = new ArrayList<>();
+            mUserRequests = new ArrayList<>();
             for (String key : args.keySet()) {
-                mApplications.add((Application) args.getSerializable(key));
+                mUserRequests.add((UserRequest) args.getSerializable(key));
             }
         }
     }
@@ -51,12 +44,12 @@ public class AppealsPagerFragment extends Fragment {
         View view = inflater.inflate(R.layout.appeals_activity, container, false);
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_item_progress));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_item_done));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_item_notDone));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tab_item_progress).toUpperCase()));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tab_item_done).toUpperCase()));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.tab_item_notDone).toUpperCase()));
 
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), mApplications);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), mUserRequests);
 
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

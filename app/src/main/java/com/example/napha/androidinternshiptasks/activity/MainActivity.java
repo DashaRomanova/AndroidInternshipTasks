@@ -11,40 +11,37 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
-import com.example.napha.androidinternshiptasks.model.Application;
 import com.example.napha.androidinternshiptasks.R;
 import com.example.napha.androidinternshiptasks.fragment.AppealsPagerFragment;
-import com.example.napha.androidinternshiptasks.model.Indicator;
+import com.example.napha.androidinternshiptasks.model.UserRequest;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
-    private List<Application> mApplications;
+    private List<UserRequest> mUserRequests;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mApplications = Application.loadTestApplications();
+        mUserRequests = UserRequest.loadTestUserRequests();
 
         setContentView(R.layout.activity_main);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        try{
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+        } catch (NullPointerException exp){
+            System.out.println(exp.getStackTrace());
+        }
         actionBar.setDisplayShowTitleEnabled(true);
 
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -69,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         };
 
-        drawerLayout.setDrawerListener(drawerToggle);
+        drawerLayout.addDrawerListener(drawerToggle);
         drawerLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -99,15 +96,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.nav_all_appeals) {
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            toolbar.setTitle(R.string.nav_item_all_appeals);
-            selectItem();
-        } else if (id == R.id.nav_map) {
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            toolbar.setTitle(R.string.nav_item_appeals_on_map);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        switch(item.getItemId()){
+            case R.id.nav_all_appeals:
+                toolbar.setTitle(R.string.nav_item_all_appeals);
+                selectItem();
+                break;
+            case R.id.nav_map:
+                toolbar.setTitle(R.string.nav_item_appeals_on_map);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void selectItem() {
-        Fragment fragment = AppealsPagerFragment.newInstance(mApplications);
+        Fragment fragment = AppealsPagerFragment.newInstance(mUserRequests);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.content_frame, fragment)

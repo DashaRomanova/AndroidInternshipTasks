@@ -9,14 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.napha.androidinternshiptasks.model.Application;
 import com.example.napha.androidinternshiptasks.R;
 import com.example.napha.androidinternshiptasks.activity.AppealActivity;
 import com.example.napha.androidinternshiptasks.model.SingleCardItem;
+import com.example.napha.androidinternshiptasks.model.UserRequest;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -25,22 +24,12 @@ import java.util.Locale;
  */
 public class CardRecyclerViewDataAdapter extends RecyclerView.Adapter<CardRecyclerViewDataAdapter.ItemHolder>{
 
-    private List<Application> mItemsList;
+    private List<UserRequest> mItemsList;
     private Context mContext;
 
-    public CardRecyclerViewDataAdapter(List<Application> mItemsList, Context mContext) {
+    public CardRecyclerViewDataAdapter(List<UserRequest> mItemsList, Context mContext) {
         this.mItemsList = mItemsList;
         this.mContext = mContext;
-    }
-
-    private SingleCardItem createCardItem(Application application){
-        return new SingleCardItem(
-                application.getTitleImage(),
-                application.getLikesCount(),
-                application.getTitle(),
-                application.getStreet(),
-                application.getDateOfRegistration(),
-                application.getDateOfResolution());
     }
 
     @Override
@@ -52,9 +41,11 @@ public class CardRecyclerViewDataAdapter extends RecyclerView.Adapter<CardRecycl
     @Override
     public void onBindViewHolder(ItemHolder holder, int position) {
         holder.mPositionInList = position;
-        final SingleCardItem singleCardItem = createCardItem(mItemsList.get(position));
+        String format = "MMM dd, yyyy";
+        Locale UaLocale = new Locale("uk","UA");
+        final SingleCardItem singleCardItem = CardItemHelper.createCardItem(mItemsList.get(position));
         Picasso.with(mContext)
-                .load("file:///android_asset/hand.png")
+                .load("file:///android_asset/"+singleCardItem.getLikeImage())
                 .into(holder.mItemLikeImage);
         Picasso.with(mContext)
                 .load("file:///android_asset/"+singleCardItem.getImage())
@@ -62,25 +53,12 @@ public class CardRecyclerViewDataAdapter extends RecyclerView.Adapter<CardRecycl
         holder.mItemLikeCount.setText(singleCardItem.getLikesCount().toString());
         holder.mItemTitle.setText(singleCardItem.getTitleText());
         holder.mItemStreet.setText(singleCardItem.getStreet());
-        holder.mItemDateBeginning.setText(new SimpleDateFormat("MMM dd, yyyy", new Locale("uk","UA")).format(singleCardItem.getBeginningDate()));
-        holder.mItemDate.setText(getDifferenceBetweenTwoDates(
+        holder.mItemDateBeginning.setText(new SimpleDateFormat(format, UaLocale).format(singleCardItem.getBeginningDate()));
+        holder.mItemDate.setText(CardItemHelper.getDifferenceBetweenTwoDates(
                 singleCardItem.getBeginningDate(),
                 singleCardItem.getEndDate())
                 + " "
                 + mContext.getResources().getString(R.string.days));
-    }
-
-    private long getDifferenceBetweenTwoDates(Date begin, Date end){
-        long difference = begin.getTime() - end.getTime();
-        // seconds
-        long seconds = difference / 1000;
-        // minutes
-        long minutes = seconds / 60;
-        // hours
-        long hours = minutes / 60;
-        // days
-        long days = hours / 24;
-        return days;
     }
 
     @Override
