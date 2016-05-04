@@ -13,16 +13,8 @@ import java.util.List;
 public class CardItemHelper {
     public static List<SingleCardItem> createCardItems(List<UserRequest> userRequests){
         List<SingleCardItem> cardItems = new ArrayList<>();
-        String likeImage = "hand.png";
         for (UserRequest request:userRequests) {
-            cardItems.add(new SingleCardItem(
-                    request.getTitleImage(),
-                    likeImage,
-                    request.getLikesCount(),
-                    request.getTitle(),
-                    request.getStreet(),
-                    request.getDateOfRegistration(),
-                    request.getDateOfResolution()));
+            cardItems.add(createCardItem((request)));
         }
         return cardItems;
     }
